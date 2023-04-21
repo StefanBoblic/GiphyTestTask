@@ -7,8 +7,14 @@
 
 import Foundation
 
+struct GiphyResponse {
+    let giphyData: [GiphyData]?
+    let pagination: Pagenation?
+    let error: String?
+}
+
 protocol HomeViewModelProtocol {
-    func fetchGIFs(with offset: Int) async throws -> ([GiphyData]?, Pagenation?, String?)
+    func fetchGIFs(with offset: Int) async throws -> GiphyResponse
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -19,12 +25,12 @@ class HomeViewModel: HomeViewModelProtocol {
         self.networkService = networkService
     }
 
-    func fetchGIFs(with offset: Int) async throws -> ([GiphyData]?, Pagenation?, String?) {
+    func fetchGIFs(with offset: Int) async throws -> GiphyResponse {
         do {
             let result = try await networkService.sendRequest(type: GiphyListModel.self, urlRequest: TrendingRouter.fetchGIFs.createURLRequest(offset: offset))
-            return (result.data, result.pagination, nil)
+            return GiphyResponse(giphyData: result.data, pagination: result.pagination, error: nil)
         } catch {
-            return (nil, nil, error.localizedDescription)
+            return GiphyResponse(giphyData: nil, pagination: nil, error: error.localizedDescription)
         }
     }
 }

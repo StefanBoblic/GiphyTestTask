@@ -55,21 +55,21 @@ class SocialImageButton: UIImageView {
     @objc func shareGIF() {
         switch social {
         case .IMessage:
-            print("Share to IMessage")
+            NSLog("Share to IMessage")
         case .Messenger:
-            print("Share to Messenger")
+            NSLog("Share to Messenger")
         case .Snapchat:
-            print("Share to Snapchat")
+            NSLog("Share to Snapchat")
         case .WhatsApp:
-            print("Share to WhatsApp")
+            NSLog("Share to WhatsApp")
         case .Instagram:
-            print("Share to Instagram")
+            NSLog("Share to Instagram")
         case .Facebook:
-            print("Share to Facebook")
+            NSLog("Share to Facebook")
         case .Twitter:
-            print("Share to Twitter")
+            NSLog("Share to Twitter")
         case .none:
-            print("Unknown Error")
+            NSLog("Unknown Error")
         }
     }
 }

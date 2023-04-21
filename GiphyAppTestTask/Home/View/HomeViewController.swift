@@ -9,11 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController, UINavigationBarDelegate {
 
-    var GIFs = [GiphyData]() {
-        didSet {
-            print(GIFs.count)
-        }
-    }
+    var GIFs = [GiphyData]()
     var pagenation: Pagenation?
     var isRefresh = false
 
@@ -43,27 +39,27 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
             do {
                 let result = try await viewModel.fetchGIFs(with: offset)
 
-                if let error = result.2 {
-                    print(error)
+                if let error = result.error {
+                    NSLog(error)
                 } else {
-                    guard let safeGIFs = result.0 else {
-                        print("Optional response")
+                    guard let safeGIFs = result.giphyData else {
+                        NSLog("Optional response")
                         return
                     }
 
                     self.GIFs.append(contentsOf: safeGIFs)
-                    self.pagenation = result.1
+                    self.pagenation = result.pagination
 
-                    self.reloaCollectionView()
+                    self.reloadCollectionView()
                 }
             } catch {
-                debugPrint("Show alert here: \(error.localizedDescription)")
+                NSLog("\(error.localizedDescription)")
             }
         }
     }
 
 
-    private func reloaCollectionView() {
+    private func reloadCollectionView() {
         DispatchQueue.main.async {
             self.gifCollectionView.reloadData()
             self.isRefresh = false
