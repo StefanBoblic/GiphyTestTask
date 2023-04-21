@@ -90,6 +90,7 @@ class DetailViewController: UIViewController {
         shareButtonConfig.buttonSize = .medium
         shareButtonConfig.contentInsets = .init(top: 20, leading: 20, bottom: 20, trailing: 20)
         shareButton.configuration = shareButtonConfig
+        shareButton.addTarget(self, action: #selector(saveToGallery), for: .touchUpInside)
 
         self.view.addSubview(closeButton)
         self.view.addSubview(shareButton)
@@ -170,6 +171,13 @@ class DetailViewController: UIViewController {
             make.top.equalTo(shareButtonsStack.snp.bottom).offset(8)
             make.left.equalTo(20)
             make.right.equalTo(-20)
+        }
+    }
+
+    @objc func saveToGallery() {
+        if previewIsLoaded {
+            UIImageWriteToSavedPhotosAlbum(previewImage.image!, nil, nil, nil)
+            self.dismiss(animated: true)
         }
     }
 
