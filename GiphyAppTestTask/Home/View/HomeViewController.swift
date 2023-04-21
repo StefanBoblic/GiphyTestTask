@@ -34,7 +34,6 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupLayout()
         fetchGIFs()
     }
@@ -91,6 +90,7 @@ extension HomeViewController {
         navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
 
         self.navigationItem.titleView = customNavigation
+        self.view.addSubview(customNavigation)
     }
 
     private func setupCategoryScroll() {
@@ -100,7 +100,6 @@ extension HomeViewController {
     private func setupCollectionView() {
         gifCollectionView.delegate = self
         gifCollectionView.dataSource = self
-        gifCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         gifCollectionView.register(GIFCell.self)
         gifCollectionView.collectionViewLayout = GiphyLayout()
         gifCollectionView.showsVerticalScrollIndicator = false
@@ -114,6 +113,7 @@ extension HomeViewController {
 
     private func setupConstraints() {
         customNavigation.snp.makeConstraints { make in
+            make.top.equalToSuperview()
             make.left.right.equalToSuperview()
         }
 
@@ -158,13 +158,21 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (self.gifCollectionView.contentOffset.y >= (self.gifCollectionView.contentSize.height - self.gifCollectionView.bounds.size.height)) {
-            guard let totalCount = pagenation?.totalCount, totalCount > self.GIFs.count, !isRefresh else {
-                return
-            }
+        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
+            // Scrolling down
+            if scrollView.contentOffset.y >= (self.gifCollectionView.contentSize.height - self.gifCollectionView.bounds.size.height) {
+                // Scrolled to bottom of collection view
+                guard let totalCount = pagenation?.totalCount, totalCount > self.GIFs.count, !isRefresh else {
+                    return
+                }
 
-            self.isRefresh = true
-            fetchGIFs(offset: self.GIFs.count)
+                self.isRefresh = true
+                fetchGIFs(offset: self.GIFs.count)
+            }
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        } else {
+            // Scrolling up
+            navigationController?.setNavigationBarHidden(false, animated: true)
         }
     }
 

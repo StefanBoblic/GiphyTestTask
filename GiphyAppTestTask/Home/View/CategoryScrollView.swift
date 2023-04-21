@@ -10,7 +10,7 @@ import SnapKit
 
 class CategoryScrollView: UIView {
 
-    let categories = ["GIFs", "Stickers", "Category", "Category", "Category"]
+    let categories = ["GIFs", "Stickers", "Kek", "Kek", "Kek"]
 
     let categoryScroll = UIScrollView()
     let categoryStack = UIStackView()

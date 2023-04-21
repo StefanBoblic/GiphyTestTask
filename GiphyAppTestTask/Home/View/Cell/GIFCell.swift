@@ -9,15 +9,19 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class GIFCell: UICollectionViewCell, ReusableView, NibLoadableView {
+class GIFCell: UICollectionViewCell, ReusableView {
 
     private let GIFImage = UIImageView()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
 
         setupUI()
         setupConstraints()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     private func setupUI() {
@@ -27,7 +31,7 @@ class GIFCell: UICollectionViewCell, ReusableView, NibLoadableView {
 
         switchLoading(start: true)
 
-        self.addSubview(GIFImage)
+        addSubview(GIFImage)
     }
 
     private func setupConstraints() {
