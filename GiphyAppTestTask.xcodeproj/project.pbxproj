@@ -32,6 +32,8 @@
 		A4CA679629F315AE00A0E1E2 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CA679529F315AE00A0E1E2 /* Social.swift */; };
 		A4CA679A29F33A5B00A0E1E2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A4CA679929F33A5B00A0E1E2 /* SnapKit */; };
 		A4CA679D29F33A6600A0E1E2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A4CA679C29F33A6600A0E1E2 /* Kingfisher */; };
+		A4CA67A029F33FF600A0E1E2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CA679F29F33FF600A0E1E2 /* TabBarController.swift */; };
+		A4CA67A229F3408400A0E1E2 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CA67A129F3408400A0E1E2 /* UIImage + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		A4CA679029F314CA00A0E1E2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A4CA679329F3159100A0E1E2 /* SocialImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialImageButton.swift; sourceTree = "<group>"; };
 		A4CA679529F315AE00A0E1E2 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
+		A4CA679F29F33FF600A0E1E2 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A4CA67A129F3408400A0E1E2 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		A4CA673629F2DDEF00A0E1E2 /* GiphyAppTestTask */ = {
 			isa = PBXGroup;
 			children = (
+				A4CA679E29F33FEA00A0E1E2 /* TabBar */,
 				A4CA673729F2DDEF00A0E1E2 /* AppDelegate.swift */,
 				A4CA678F29F314BF00A0E1E2 /* Detail */,
 				A4CA677729F2FD1800A0E1E2 /* Extension */,
@@ -149,6 +154,7 @@
 				A4CA677829F2FD3700A0E1E2 /* UIColor+Extension.swift */,
 				A4CA677A29F2FEDD00A0E1E2 /* UIView+Extension.swift */,
 				A4CA678829F310E500A0E1E2 /* UICollectionView+Extension.swift */,
+				A4CA67A129F3408400A0E1E2 /* UIImage + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -216,6 +222,14 @@
 				A4CA674529F2DDF000A0E1E2 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A4CA679E29F33FEA00A0E1E2 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A4CA679F29F33FF600A0E1E2 /* TabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +323,9 @@
 				A4CA677F29F3009900A0E1E2 /* BaseRouter.swift in Sources */,
 				A4CA679129F314CA00A0E1E2 /* DetailViewController.swift in Sources */,
 				A4CA676629F2F56400A0E1E2 /* MosaicLayout.swift in Sources */,
+				A4CA67A029F33FF600A0E1E2 /* TabBarController.swift in Sources */,
 				A4CA679429F3159100A0E1E2 /* SocialImageButton.swift in Sources */,
+				A4CA67A229F3408400A0E1E2 /* UIImage + Extension.swift in Sources */,
 				A4CA676D29F2FA9500A0E1E2 /* CategoryScrollView.swift in Sources */,
 				A4CA678C29F3112200A0E1E2 /* NibLoadableView + ReusableView.swift in Sources */,
 				A4CA678729F301B500A0E1E2 /* GIFRequestManager.swift in Sources */,

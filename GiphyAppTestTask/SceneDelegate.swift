@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        let viewController = UINavigationController(rootViewController: HomeViewController(viewModel: HomeViewModel(networkService: NetworkWorker())))
+        let viewController = UINavigationController(rootViewController: TabBarController())
         viewController.isNavigationBarHidden = true
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()

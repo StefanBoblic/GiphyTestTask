@@ -171,7 +171,6 @@ extension HomeViewController: UIScrollViewDelegate {
             }
             navigationController?.setNavigationBarHidden(true, animated: true)
         } else {
-            // Scrolling up
             navigationController?.setNavigationBarHidden(false, animated: true)
         }
     }

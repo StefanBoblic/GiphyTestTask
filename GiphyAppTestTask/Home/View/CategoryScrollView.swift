@@ -10,7 +10,7 @@ import SnapKit
 
 class CategoryScrollView: UIView {
 
-    let categories = ["GIFs", "Stickers", "Kek", "Kek", "Kek"]
+    let categories = ["Trending", "Stickers", "Kek", "Kek", "Kek", "Kek", "Kek"]
 
     let categoryScroll = UIScrollView()
     let categoryStack = UIStackView()
@@ -37,7 +37,7 @@ class CategoryScrollView: UIView {
         buttonConfiguration.baseForegroundColor = .white
         buttonConfiguration.buttonSize = .medium
         buttonConfiguration.cornerStyle = .capsule
-        buttonConfiguration.baseBackgroundColor = UIColor(named: "mainButtonColor")
+        buttonConfiguration.baseBackgroundColor = UIColor(named: "MainButtonColor")
         buttonConfiguration.titleAlignment = .center
 
         for category in categories {
