@@ -177,7 +177,11 @@ class DetailViewController: UIViewController {
     @objc func saveToGallery() {
         if previewIsLoaded {
             UIImageWriteToSavedPhotosAlbum(previewImage.image!, nil, nil, nil)
-            self.dismiss(animated: true)
+            let alert = UIAlertController(title: "Image saved to Photos", message: "Image just got saved to Photos", preferredStyle: UIAlertController.Style.alert)
+
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
